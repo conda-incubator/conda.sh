@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+#https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+#https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+#https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
+#https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-s390x.sh
+
+
+_uname=$(command uname)
+if [[ $_uname == "Darwin" ]]
+then
+    PLAT="MacOSX"
+    ARCH=$(command arch)
+    if [[ $ARCH == "i386" ]]
+    then
+      ARCH="x86_64"
+    fi
+else 
+   echo "Probably linux"
+   PLAT="Linux"
+   ARCH="??"
+fi
+
+target="https://repo.anaconda.com/miniconda/Miniconda3-latest-$PLAT-$ARCH.sh"
+echo "Will download $target – Any key to continue, Ctrl-C to abort"
+read
+echo "..implement dowlaoding."
