@@ -17,9 +17,13 @@ then
       ARCH="x86_64"
     fi
 else 
-   echo "Probably linux"
-   PLAT="Linux"
-   ARCH="??"
+    echo "Probably linux"
+    PLAT="Linux"
+    ARCH=$(command arch)
+    if [[ $ARCH == "i386" ]]
+    then
+      ARCH="x86_64"
+    fi
 fi
 
 target="https://repo.anaconda.com/miniconda/Miniconda3-latest-$PLAT-$ARCH.sh"
