@@ -1,0 +1,54 @@
+<html>
+    <header>
+      <meta charset="UTF-8">
+    <style>
+    body {
+      padding:0;
+      margin:0;
+      background-color: #fff;
+      text-align: center;
+      color: #43B02A;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a{
+      color:#047704;
+    }
+    .content {
+      margin-top: 60px;
+      flex: 1 0 auto;
+    }
+    pre.cli:before{
+     content:'$'
+    }
+    pre.cli {
+        font-size: 200%;
+        margin-left: 10%;
+        margin-right: 10%;
+        background: #000;
+        padding: 20px;
+        text-align: left;
+    }
+    </style>
+    </header>
+    <body>
+      <div class='content'>
+      <pre>
+ ██████╗ ██████╗ ███╗   ██╗██████╗  █████╗    ███████╗██╗  ██╗
+██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗   ██╔════╝██║  ██║
+██║     ██║   ██║██╔██╗ ██║██║  ██║███████║   ███████╗███████║
+██║     ██║   ██║██║╚██╗██║██║  ██║██╔══██║   ╚════██║██╔══██║
+╚██████╗╚██████╔╝██║ ╚████║██████╔╝██║  ██║██╗███████║██║  ██║
+ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝
+      </pre>
+      <pre class='cli'> bash &lt;(curl -sSL conda.sh)</pre>
+      <!-- s is silent, S is show if errors, L follow redirects. -->
+      </div>
+      <footer>
+      <p>It is generally ill-advised to curl directly a script and pipe it into a
+      shell.</p>
+      <p><a href='https://github.com/conda-incubator/conda.sh'>GitHub Repository</href></p>
+      </footer>
+    </body>
+  </html>
