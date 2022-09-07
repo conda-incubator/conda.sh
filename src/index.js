@@ -42,8 +42,6 @@ async function handleRequest(request) {
   const userAgent = request.headers.get('User-Agent') || '';
   if (userAgent.includes('curl')) {
     return new Response(`#!/bin/bash
-# <!--
-
 echo ""
 echo "  ██████╗ ██████╗ ███╗   ██╗██████╗  █████╗    ███████╗██╗  ██╗"
 echo " ██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗   ██╔════╝██║  ██║"
@@ -51,8 +49,7 @@ echo " ██║     ██║   ██║██╔██╗ ██║██║ 
 echo " ██║     ██║   ██║██║╚██╗██║██║  ██║██╔══██║   ╚════██║██╔══██║"
 echo " ╚██████╗╚██████╔╝██║ ╚████║██████╔╝██║  ██║██╗███████║██║  ██║"
 echo "  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝"
-echo " Conda is a trademark of Anaconda, Inc. This is not an official"
-echo " Anaconda product, and is just provided for convenience."
+echo " It is generally ill-advised to curl-pipe a shell script."
 
 _uname=$(command uname)
 if [[ $_uname == "Darwin" ]]
@@ -81,7 +78,8 @@ echo "$ sh <(curl $TARGET)"
 echo "Press Any key to continue, Ctrl-C to abort"
 read
 curl -o $TMP $TARGET
-sh $TMP`, { status: 200 });
+sh $TMP`,
+  { status: 200 });
   }
 
   // On Client's IP address
@@ -105,33 +103,65 @@ sh $TMP`, { status: 200 });
 
   // }
   return new Response(`
-  <html>
-    <header>
+<html>
+  <header>
+    <meta charset="UTF-8">
     <style>
-    body {
-      background-color: #444;
-    }
-    pre:before{
-     content:'$'
-    }
-    pre {
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #fff;
+        text-align: center;
+        color: #43B02A;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      a {
+        color: #047704;
+      }
+
+      .content {
+        margin-top: 60px;
+        flex: 1 0 auto;
+      }
+
+      pre.cli:before {
+        content: '$'
+      }
+
+      pre.cli {
         font-size: 200%;
-        margin: 10%;
-        background: #ccc;
+        margin-left: 10%;
+        margin-right: 10%;
+        background: #000;
         padding: 20px;
         text-align: left;
-    }
+      }
     </style>
-    </header>
-    <body>
-      <pre> bash <(curl -L conda.sh)</pre>
+  </header>
+  <body>
+    <div class='content'>
+      <pre>
+ ██████╗ ██████╗ ███╗   ██╗██████╗  █████╗    ███████╗██╗  ██╗
+██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗   ██╔════╝██║  ██║
+██║     ██║   ██║██╔██╗ ██║██║  ██║███████║   ███████╗███████║
+██║     ██║   ██║██║╚██╗██║██║  ██║██╔══██║   ╚════██║██╔══██║
+╚██████╗╚██████╔╝██║ ╚████║██████╔╝██║  ██║██╗███████║██║  ██║
+ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝
+      </pre>
+      <pre class='cli'> bash &lt;(curl -sSL conda.sh)</pre>
+      <!-- s is silent, S is show if errors, L follow redirects. -->
+    </div>
+    <footer>
+      <p>It is generally ill-advised to curl directly a script and pipe it into a shell.</p>
       <p>
-         When detectign curl, we serve a tiny sh script that tries to detect your pltform
-         and architecture and try to download and isntall the corresponding miniconda
-         install then run it.</p>
-      <p>Not affiliated with Anaconda, Inc. Use at your own risk.</p>
-    </body>
-  </html>`, { status: 200 , headers: {
+        <a href='https://github.com/conda-incubator/conda.sh'>GitHub Repository </href>
+      </p>
+    </footer>
+  </body>
+</html>`, { status: 200 , headers: {
       'content-type': 'text/html;charset=UTF-8',
     }});
   
