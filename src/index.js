@@ -118,6 +118,13 @@ sh $TMP`,
         min-height: 100vh;
       }
 
+      @media (prefers-color-scheme: dark) {
+        body   { background-color: #333;}
+      }
+      @media (prefers-color-scheme: light) {
+        body   { background-color: white;}
+      }
+
       a {
         color: #047704;
       }
