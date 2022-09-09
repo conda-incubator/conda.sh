@@ -21,6 +21,11 @@
 async function handleRequest(request) {
   // Return a new Response based on a URL's hostname
   const url = new URL(request.url);
+  console.log('Via URL:', url);
+
+  if (url.hostname == 'micromamba.conda.sh') {
+    return Response.redirect('http://micro.mamba.pm/install.sh')
+  }
 
   //if (BLOCKED_HOSTNAMES.includes(url.hostname)) {
   //  return new Response('Blocked Host', { status: 403 });
