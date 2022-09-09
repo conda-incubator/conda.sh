@@ -148,6 +148,13 @@ sh $TMP`,
         text-align: left;
       }
 
+      pre.micromamba {
+        font-size: 100%;
+        padding: 10px;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+
       @media only screen and (max-width: 590px){
         pre.logo{
             font-size: 5px;
@@ -175,6 +182,11 @@ sh $TMP`,
       </pre>
       <pre class='cli'> bash &lt;(curl -sSL conda.sh)</pre>
       <!-- s is silent, S is show if errors, L follow redirects. -->
+
+      <p>Looking for micromamba ?</p>
+
+      <pre class='micromamba cli'> bash &lt;(curl -SSl micro.mamba.pm/install.sh)</pre>
+
     </div>
     <footer>
       <p>It is generally ill-advised to curl directly a script and pipe it into a shell.</p>

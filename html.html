@@ -42,11 +42,32 @@
         padding: 20px;
         text-align: left;
       }
+
+      pre.micromamba {
+        font-size: 100%;
+        padding: 10px;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+
+      @media only screen and (max-width: 590px){
+        pre.logo{
+            font-size: 5px;
+        }
+
+        pre.cli {
+            font-size: 100%;
+        }
+
+        footer {
+            font-size: 60%;
+        }
+      }
     </style>
   </header>
   <body>
     <div class='content'>
-      <pre>
+      <pre class='logo'>
  ██████╗ ██████╗ ███╗   ██╗██████╗  █████╗    ███████╗██╗  ██╗
 ██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗   ██╔════╝██║  ██║
 ██║     ██║   ██║██╔██╗ ██║██║  ██║███████║   ███████╗███████║
@@ -56,6 +77,11 @@
       </pre>
       <pre class='cli'> bash &lt;(curl -sSL conda.sh)</pre>
       <!-- s is silent, S is show if errors, L follow redirects. -->
+
+      <p>Looking for micromamba ?</p>
+
+      <pre class='micromamba cli'> bash &lt;(curl -SSl micro.mamba.pm/install.sh)</pre>
+
     </div>
     <footer>
       <p>It is generally ill-advised to curl directly a script and pipe it into a shell.</p>
