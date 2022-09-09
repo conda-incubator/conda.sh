@@ -105,7 +105,7 @@ sh $TMP`,
   return new Response(`
 <!DOCTYPE html>
 <html>
-  <header>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -170,7 +170,7 @@ sh $TMP`,
         }
       }
     </style>
-  </header>
+  </head>
   <body>
     <div class='content'>
       <pre class='logo'>
