@@ -16,7 +16,7 @@
 
 
 
-const BLOCKED_HOSTNAMES = ['nope.mywebsite.com', 'bye.website.com'];
+//const BLOCKED_HOSTNAMES = ['nope.mywebsite.com', 'bye.website.com'];
 
 async function handleRequest(request) {
   // Return a new Response based on a URL's hostname
@@ -106,6 +106,7 @@ sh $TMP`,
 <html>
   <header>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
         padding: 0;
@@ -146,11 +147,25 @@ sh $TMP`,
         padding: 20px;
         text-align: left;
       }
+
+      @media only screen and (max-width: 590px){
+        pre.logo{
+            font-size: 5px;
+        }
+
+        pre.cli {
+            font-size: 100%;
+        }
+
+        footer {
+            font-size: 60%;
+        }
+      }
     </style>
   </header>
   <body>
     <div class='content'>
-      <pre>
+      <pre class='logo'>
  ██████╗ ██████╗ ███╗   ██╗██████╗  █████╗    ███████╗██╗  ██╗
 ██╔════╝██╔═══██╗████╗  ██║██╔══██╗██╔══██╗   ██╔════╝██║  ██║
 ██║     ██║   ██║██╔██╗ ██║██║  ██║███████║   ███████╗███████║
