@@ -24,7 +24,7 @@ async function handleRequest(request) {
   console.log('Via URL:', url);
 
   if (url.hostname == 'micromamba.conda.sh') {
-    return Response.redirect('http://micro.mamba.pm/install.sh')
+    return Response.redirect('https://micro.mamba.pm/install.sh')
   }
 
   //if (BLOCKED_HOSTNAMES.includes(url.hostname)) {
